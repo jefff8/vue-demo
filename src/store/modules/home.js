@@ -1,4 +1,5 @@
 const homeModule = {
+  namespaced: true,
   state: {
     homeModule: 0
   },

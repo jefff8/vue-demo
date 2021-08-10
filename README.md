@@ -1,21 +1,2 @@
 # vue-demo
-
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+2021.08.10 创建 git 仓库，作为以后写 vue 的一个 demo，目前引入 vuex、vue-router。目前尝试 vue生命周期和一些常用 API、computed & watch 基本用法，vuex 的基本操作。

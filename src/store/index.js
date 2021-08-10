@@ -11,11 +11,12 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   // 根模块
   state: {
-    countRoot: 0
+    countRoot: 0,
+    msgRoot: "msg hello"
   },
   getters: {
     getCount(state) {
-      return `hello ${state.countRoot}`
+      return `get count: ${state.countRoot}`
     }
   },
   actions,
