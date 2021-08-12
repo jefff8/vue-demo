@@ -1,11 +1,12 @@
 export default {
-  increment(state, payload) {
-    console.log('mutation increment')
-    console.log({payload})
-    state.countRoot++
+  ["INCREMENT"](state, payload) {
+    state.count = 2
+    state.countModule.count++
   },
-  // 使用常量替代 Mutation 事件类型
-  ['SOME_MUTATION'] (state, payload) {
-    console.log('SOME_MUTATION')
+  ['CHANGE_MSG'](state, payload) {
+    state.msg = payload
+  },
+  ['CHANGE_USER_INFO'](state, payload) {
+    state.userInfo = payload
   },
 }

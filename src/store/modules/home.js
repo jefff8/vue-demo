@@ -1,7 +1,7 @@
 const homeModule = {
   namespaced: true,
   state: {
-    homeModule: 0
+    count: 0
   },
   mutations: {},
   actons: {},

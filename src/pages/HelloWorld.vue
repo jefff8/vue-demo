@@ -5,6 +5,7 @@
       <span :key="index"> {{ item }} </span>
     </template>
     <div>use computed countDouble: {{ countDouble }}</div>
+    <div>msgRoot: {{ msg }}</div>
     <button @click="addNum">Add +</button>
     <input v-model="inputText" placeholder="please input text" />
     <Index :title="name" />
@@ -13,7 +14,6 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
 import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 import Index from "../components/Index.vue";
 import MyDemo from "../components/MyDemo.vue";
@@ -28,12 +28,30 @@ export default {
     return {
       name: "hello world component",
       items: ["apple", "banner", "pie"],
-      count: 1,
-      inputText: ""
+      myCount: 1,
+      inputText: "",
     };
   },
   created() {},
   mounted() {},
+  methods: {
+    addNum() {
+      this.addAction();
+      console.log(this.moduleCount);
+    },
+    parentMethod(param) {
+      console.log(`fun call by child & param: ${param}`);
+    },
+    ...mapMutations({
+      increment: "INCREMENT",
+      someMutation: "SOME_MUTATION",
+    }),
+    ...mapActions({
+      addAction: "increment",
+      changeMsgAction: "changeMsg",
+      changeUserInfo: "changeUserInfo",
+    }),
+  },
   watch: {
     count(newVal, oldVal) {
       console.log(`count watch new: ${newVal}, old: ${oldVal}`);
@@ -41,17 +59,6 @@ export default {
     countPlus(newVal, oldVal) {
       console.log(`countPlus watch new: ${newVal}, old: ${oldVal}`);
     },
-  },
-  methods: {
-    addNum() {
-      this.add("component pass val to mutaion increment");
-      this.addAction("component action increment");
-    },
-    parentMethod(param) {
-      console.log(`fun call by child & param: ${param}`);
-    },
-    ...mapMutations({ add: "increment", someMutation: "SOME_MUTATION" }),
-    ...mapActions({ addAction: "increment" }),
   },
   computed: {
     countDouble: function () {
@@ -67,7 +74,8 @@ export default {
         this.count = val - 1;
       },
     },
-    ...mapState(["countRoot", "msgRoot"]),
+    ...mapState(["count", "msg"]),
+    ...mapState("countModule", { moduleCount: "count" }),
     ...mapGetters(["getCount"]),
   },
 };

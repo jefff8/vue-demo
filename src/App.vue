@@ -5,6 +5,7 @@
 </template>
 
 <script>
+console.log(process.env)
 export default {
   name: 'App'
 }

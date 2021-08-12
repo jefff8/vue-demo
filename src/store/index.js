@@ -11,8 +11,13 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   // 根模块
   state: {
-    countRoot: 0,
-    msgRoot: "msg hello"
+    count: 0,
+    msg: "msg hello",
+    userInfo: {
+      name: "jeff",
+      age: 18,
+      sex: "male"
+    }
   },
   getters: {
     getCount(state) {
